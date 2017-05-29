@@ -44,6 +44,8 @@ unConfiguracao.dcu
 *.hpp
 *Resource.rc
 
+*.DS_Store
+
 # Delphi local files (user-specific info)
 *.local
 *.identcache
