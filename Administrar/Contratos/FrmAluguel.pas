@@ -115,7 +115,7 @@ type
     Label29: TLabel;
     DBEdit25: TDBEdit;
     Label30: TLabel;
-    DBEdit26: TDBEdit;
+    edit_finalidade: TDBEdit;
     GroupBox16: TGroupBox;
     GroupBox17: TGroupBox;
     Label35: TLabel;
@@ -1238,6 +1238,9 @@ begin
   If DS.DataSet.Active Then
   Begin
        Try
+          if (DS.DataSet.FieldByName('FINALIDADE').AsString = 'MORADIA') or (DS.DataSet.FieldByName('FINALIDADE').AsString = '') then
+               unUtilitario.setMensagem('AVISO: O CAMPO FINALIDADE ESTÁ PADRÃO COMO MORADIA', 'informa');
+
           if Length(Trim(ComboEscolhaMes.Text)) > 0 then
              if Pos('- REPASSE DIA '+DBEdit3.Text,DBMemo2.Lines.Text) = 0 then
                 DM_ADMIN.Z_ALUGUELOBS.AsString := '- REPASSE DIA '+DBEdit3.Text+' DO '+ComboEscolhaMes.Text+' PELO USUÁRIO(A) '+getUser('USUARIO')+' NA DATA DE '+DateTimeToStr(Date+Time)+'.'+#13+DM_ADMIN.Z_ALUGUELOBS.AsString;

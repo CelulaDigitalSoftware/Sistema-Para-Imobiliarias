@@ -3442,7 +3442,7 @@ object CAD_Aluguel: TCAD_Aluguel
               DataSource = DS
               TabOrder = 0
             end
-            object DBEdit26: TDBEdit
+            object edit_finalidade: TDBEdit
               Left = 10
               Top = 29
               Width = 242
@@ -5845,7 +5845,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.597559872690000000
+              Date = 39647.887607800930000000
               TabOrder = 3
             end
             object EditValorDiaForma: TComboBox
@@ -5958,7 +5958,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.597559872690000000
+              Date = 39647.887607916670000000
               TabOrder = 2
             end
             object EditValorValorForma: TComboBox
