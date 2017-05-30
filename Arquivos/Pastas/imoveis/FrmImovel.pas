@@ -2896,6 +2896,17 @@ begin
 
      unUtilitario.setMensagem('Registro incluído com sucesso!','informa');
 
+     for I := 0 to SelecaoImovel.Count - 1 do
+     Begin
+          varSQL := unUtilitario.getSelect('select p.nome, p.email from pessoa_imovel as pi inner join pessoa p on pi.id_pessoa = p.id_pessoa and p.ativo = ''SIM'' and p.email is not null where pi.status = ''PROPRIETARIO'' and pi.id_imovel = '+SelecaoImovel.Strings[I]);
+          Begin
+                 PRINCIPAL.enviaEmail(0, 'RECADO DO SISTEMA', varSQL.Fields[1].AsString, varSQL.Fields[0].AsString, '', 'REMETENTE: '+getUser('USUARIO')+'<br>'+ 'FOI REALIZADO UMA NOVA RESERVA DAS CHAVES DO SEU IMOVEL PARA UMA POSSÍVEL VISITA'+'<br>');
+                 varSQL.Next;
+          end;
+          varSQL.Close;
+          unUtilitario.setMensagem('Cliente foi notificado!', 'informa');
+     end;
+
      parametros[0] := chaveEmprestimoSaidaPessoa.Text+'  (CPF/RG: '+chaveEmprestimoSaidaDocumento.Text+')'+#13+'ENDEREÇO:'+chaveEmprestimoSaidaEndereco.Text+#13+'TEL:'+chaveEmprestimoSaidaTelefone.Text+'  TEL:'+chaveEmprestimoSaidaTelefone2.Text;
 
      setDocumento('RECIBO_NOVA_CHAVE', '', '',3, 0, 0,  0, parametros);
