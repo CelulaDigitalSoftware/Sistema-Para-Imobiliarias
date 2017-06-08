@@ -3456,7 +3456,7 @@ object CAD_Aluguel: TCAD_Aluguel
               DataSource = DS
               TabOrder = 0
             end
-            object DBEdit26: TDBEdit
+            object edit_finalidade: TDBEdit
               Left = 10
               Top = 29
               Width = 242
