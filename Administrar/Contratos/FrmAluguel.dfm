@@ -1580,10 +1580,6 @@ object CAD_Aluguel: TCAD_Aluguel
     object Tab_Cadastro: TTabSheet
       Caption = '&Cadastro'
       ImageIndex = 40
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object PageControl2: TPageControl
         Left = 0
         Top = 0
@@ -1595,16 +1591,11 @@ object CAD_Aluguel: TCAD_Aluguel
         Images = PRINCIPAL.ImagensRosa
         Style = tsButtons
         TabOrder = 0
-        ExplicitHeight = 432
         object Tab_Informacoes: TTabSheet
           Caption = '&Informa'#231#245'es'
           ImageIndex = 5
           OnHide = Tab_InformacoesHide
           OnShow = Tab_InformacoesShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object GroupBox2: TGroupBox
             Left = 0
             Top = 0
@@ -2367,7 +2358,6 @@ object CAD_Aluguel: TCAD_Aluguel
             Ctl3D = True
             ParentCtl3D = False
             TabOrder = 2
-            ExplicitHeight = 144
             object IMG_Pessoas: TImage
               Left = 271
               Top = 52
@@ -2844,7 +2834,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Color = clWhite
               DataField = 'TIPO'
               DataSource = DM_ADMIN.DS_PESSOA_CONTRATO
-              ItemHeight = 0
+              ItemHeight = 13
               TabOrder = 8
               OnChange = Tipo_Pessoa_ContratoChange
               OnDropDown = Tipo_Pessoa_ContratoDropDown
@@ -5871,7 +5861,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.636234606480000000
+              Date = 39647.649645856480000000
               TabOrder = 3
             end
             object EditValorDiaForma: TComboBox
@@ -5984,7 +5974,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.636234606480000000
+              Date = 39647.649646319440000000
               TabOrder = 2
             end
             object EditValorValorForma: TComboBox

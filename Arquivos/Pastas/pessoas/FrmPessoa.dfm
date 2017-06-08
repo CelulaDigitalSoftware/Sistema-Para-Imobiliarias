@@ -242,7 +242,7 @@ inherited CAD_Pessoa: TCAD_Pessoa
           Height = 20
           CharCase = ecUpperCase
           Color = 14215660
-          ItemHeight = 0
+          ItemHeight = 12
           Sorted = True
           TabOrder = 2
         end
