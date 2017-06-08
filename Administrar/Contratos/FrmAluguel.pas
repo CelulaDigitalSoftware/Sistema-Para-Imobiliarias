@@ -859,13 +859,14 @@ begin
          Begin
               BUSCA_VALOR := StringReplace(BUSCA_VALOR, 'IMOVEL',' (Mv_Soundex(log.nome) LIKE ''%''||Mv_Soundex(''',[rfReplaceAll]);
               BUSCA_VALOR := BUSCA_VALOR+ ''')||''%'' ';
-         end;{
+         end
          else
-         If (Pos('C.DATA',BUSCA_VALOR) = 0) AND (Pos('CADASTRO',BUSCA_VALOR) > 0) then
+         If (Pos('C.TIPO_CONTRATO',BUSCA_VALOR) = 0) AND (Pos('TIPO',BUSCA_VALOR) > 0) then
          Begin
-              BUSCA_VALOR := StringReplace(BUSCA_VALOR, 'CADASTRO',' (C.DATA between '''+formataDataSQL(DateToStr(Data_Menor.Date))+''' AND '''+formataDataSQL(DateToStr(Data_Maior.Date))+''') ',[rfReplaceAll]);
+              BUSCA_VALOR := StringReplace(BUSCA_VALOR, 'TIPO ',' C.TIPO_CONTRATO = ''',[rfReplaceAll]);
+              BUSCA_VALOR := BUSCA_VALOR +''' ';
          end;
-         }
+
     end;
 
     //CODIGO
