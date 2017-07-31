@@ -615,7 +615,7 @@ begin
                else
                Begin
                varSQL := unUtilitario.getSelect('select p.*, cs.*, c.data_pgto as data_inq from pessoa p '+
-               ' inner join caixa_saida cs on cs.id_pessoa = p.id_pessoa left join caixa_entrada c on c.id_caixa = cs.id_entrada where cs.id_caixa = '+IntToStr(id_caixa));
+               ' inner join caixa_saida cs on cs.id_pessoa = p.id_pessoa and cs.ativo = ''SIM'' left join caixa_entrada c on c.id_caixa = cs.id_entrada and c.ativo = ''SIM'' where cs.id_caixa = '+IntToStr(id_caixa));
                end;
                //varMENSAGEM
                DM_RELATORIOS.Rave.SetParam('varMesagem', getConf('EMPRESA_MENSAGEM'));
@@ -840,7 +840,12 @@ end;
 
 procedure imprimir();
 begin
-     setInfoRecibo(DM_FINANCEIRO.ZCaixaSimplesID_CAIXA.AsInteger,CAD_CaixasSimples.caixaLocal,'CAD_CaixasSimples',FrmCaixasSimples.CAD_CaixasSimples.RadioMostra.Checked);
+
+     if CAD_CaixasSimples.contaAluguel > 0 then
+        setInfoRecibo(CAD_CaixasSimples.contaAluguel,CAD_CaixasSimples.caixaLocal,'CAD_CaixasSimples',FrmCaixasSimples.CAD_CaixasSimples.RadioMostra.Checked)
+     else
+         setInfoRecibo(DM_FINANCEIRO.ZCaixaSimplesID_CAIXA.AsInteger,CAD_CaixasSimples.caixaLocal,'CAD_CaixasSimples',FrmCaixasSimples.CAD_CaixasSimples.RadioMostra.Checked);
+
 end;
 
 function calcPorcentagem(total, dinheiro: Currency): String;

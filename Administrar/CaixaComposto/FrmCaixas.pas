@@ -2183,15 +2183,20 @@ begin
      CAD_CaixasSimples.ValorBusca.Text := 'CÓDIGO '+ DM_FINANCEIRO.ZCaixaID_CAIXA.AsString;
      unCaixasSimples.buscaRegistro(CAD_CaixasSimples.ValorBusca.Text);
      CAD_CaixasSimples.selecaoADDConta(DM_FINANCEIRO.ZCaixaID_CAIXA.AsString);
+
      CAD_CaixasSimples.ShowModal;
 
      DM_FINANCEIRO.ZCaixa.Refresh;
      DM_FINANCEIRO.ZCaixa.Edit;
 
      if Caixa = 'ENTRADA' then
-        PageControl1.TabIndex := 1
+     Begin
+        PageControl1.TabIndex := 1;
+     end
      ELSE
+     Begin
          PageControl1.TabIndex := 2;
+     end;
 end;
 
 procedure TCAD_Caixas.Btn_ImprimirMouseMove(Sender: TObject; Shift: TShiftState;

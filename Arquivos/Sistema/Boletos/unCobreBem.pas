@@ -433,7 +433,7 @@ begin
 
          Boleto.PadroesBoleto.Demonstrativo := Boleto.PadroesBoleto.Demonstrativo + '<br/><b>TOTAL R$ '+getCurrToStr(valorFinal, FALSE)+'</b><br/>';
          Boleto.PadroesBoleto.Demonstrativo := Boleto.PadroesBoleto.Demonstrativo + '<br/><b>PARA MAIORES INFORMAÇÕES:</b> '+getConf('EMPRESA_TELEFONE')+' / '+UpperCase(getBoleto('CampoEmail'));
-         Boleto.PadroesBoleto.InstrucoesCaixa := '<br>'+getBoleto('CampoLinha1')+'<br>'+getBoleto('CampoLinha2')+'<br>'+getBoleto('CampoLinha3')+'<br>'+getBoleto('CampoLinha4');
+         Boleto.PadroesBoleto.InstrucoesCaixa := '<br/>'+getBoleto('CampoLinha1')+'<br/>'+getBoleto('CampoLinha2')+'<br/>'+getBoleto('CampoLinha3')+'<br/>'+getBoleto('CampoLinha4');
 
          Boleto.ControleProcessamentoDocumento.Imprime := scpExecutar;
          Boleto.ControleProcessamentoDocumento.EnviaEmail := scpExecutar;

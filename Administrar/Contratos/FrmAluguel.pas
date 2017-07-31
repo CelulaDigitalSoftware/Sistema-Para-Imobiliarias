@@ -1692,8 +1692,13 @@ if (strtoint(qtde) = 3)Then
            DM_REL.ZQUERY1.FieldByName('CEP').AsString
            );
 
-           Writeln(Arquivo,'VALOR: '+getCurrToStr(DM_REL.ZQUERY1.FieldByName('VALOR').AsCurrency, True)+ '   ** ÍNDICE DO MÊS: _________________   VALOR COM ÍNDICE: R$_________________');
+           Writeln(Arquivo,'VALOR ORIGINAL: R$_________________   VALOR DESCONTO: R$_________________ ');
+           Writeln(Arquivo,'VALOR REAL: '+getCurrToStr(DM_REL.ZQUERY1.FieldByName('VALOR').AsCurrency, True)+ '   ** ÍNDICE DO MÊS: _________________   VALOR COM ÍNDICE: R$_________________');
            Writeln(Arquivo,'VALOR PEDIDO: R$_________________   ** PROPOSTA: R$_________________   ** VALOR FINAL: R$_________________');
+           Writeln(Arquivo,'SEGURO (    ) COMERCIAL (    )   RESIDENCIAL: ** R$_________________ DIVIDIDO EM _____ PARCELAS');
+           Writeln(Arquivo,'ANOTAÇÕES:');
+           Writeln(Arquivo,'__________________________________________________________________________________________________________');
+           Writeln(Arquivo,'__________________________________________________________________________________________________________');
 
            Writeln(Arquivo,' ');
 

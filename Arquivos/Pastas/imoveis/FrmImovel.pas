@@ -2899,12 +2899,13 @@ begin
      for I := 0 to SelecaoImovel.Count - 1 do
      Begin
           varSQL := unUtilitario.getSelect('select p.nome, p.email from pessoa_imovel as pi inner join pessoa p on pi.id_pessoa = p.id_pessoa and p.ativo = ''SIM'' and p.email is not null where pi.status = ''PROPRIETARIO'' and pi.id_imovel = '+SelecaoImovel.Strings[I]);
+          while NOT varSQL.Eof do
           Begin
-                 PRINCIPAL.enviaEmail(0, 'RECADO DO SISTEMA', varSQL.Fields[1].AsString, varSQL.Fields[0].AsString, '', 'REMETENTE: '+getUser('USUARIO')+'<br>'+ 'FOI REALIZADO UMA NOVA RESERVA DAS CHAVES DO SEU IMOVEL PARA UMA POSSÍVEL VISITA'+'<br>');
+                 PRINCIPAL.enviaEmail(0, 'NOVA VISITA AO SEU IMÓVEL CÓD '+SelecaoImovel.Strings[I], varSQL.Fields[1].AsString, varSQL.Fields[0].AsString, '', 'REMETENTE: '+getUser('USUARIO')+'<br/>'+ 'FOI REALIZADO UMA NOVA RESERVA DAS CHAVES DO SEU IMOVEL '+SelecaoImovel.Strings[I]+'.'+'<br/>');
                  varSQL.Next;
           end;
           varSQL.Close;
-          unUtilitario.setMensagem('Cliente foi notificado!', 'informa');
+          //PRINCIPAL.setMensagem('Proprietário foi notificado por email.', 'informa');
      end;
 
      parametros[0] := chaveEmprestimoSaidaPessoa.Text+'  (CPF/RG: '+chaveEmprestimoSaidaDocumento.Text+')'+#13+'ENDEREÇO:'+chaveEmprestimoSaidaEndereco.Text+#13+'TEL:'+chaveEmprestimoSaidaTelefone.Text+'  TEL:'+chaveEmprestimoSaidaTelefone2.Text;
@@ -5467,16 +5468,15 @@ begin
                while not varSQL.Eof do
                Begin
 
-                    html := html+'<br><div align="center"><h3>'+
+                    html := html+'<br/><div align="center"><h3>'+
                     //VARSQL.FieldByName('TIPO').AsString+' '+
                     VARSQL.FieldByName('NOME').AsString+', '+
                     VARSQL.FieldByName('NUMERO').AsString+' '+
                     VARSQL.FieldByName('COMPLEMENTO').AsString+' - '+
-                    VARSQL.FieldByName('BAIRRO').AsString+'<br>'+
+                    VARSQL.FieldByName('BAIRRO').AsString+'<br/>'+
                     VARSQL.FieldByName('CIDADE').AsString+'-'+
                     VARSQL.FieldByName('SIGLA').AsString+' CÓDIGO: '+
-                    VARSQL.FieldByName('ID_IMOVEL').AsString+
-                    '</h3></div><br>';
+                    VARSQL.FieldByName('ID_IMOVEL').AsString+'</h3></div><br/>';
 
                     varSQL2 := unUtilitario.getSelect('SELECT FIRST 1 FOTO1 FROM IMOVEL_CARACTERISTICA WHERE ID_CARACTERISTICA = 60 AND TIPO = ''NORMAL'' AND FOTO1 <> ''X_Foto.jpg'' AND ID_IMOVEL = '+VARSQL.FieldByName('ID_IMOVEL').AsString);
 

@@ -112,14 +112,21 @@ SEM INFORMAÇÃO
       tamanhoInicial := Pos(dataEscrita, codigoHTML)+Length(dataEscrita);
       for I := tamanhoInicial to tamanhoTotal do
       Begin
-           if codigoHTML[I] = '1' then
+           if codigoHTML[I] = 'h' then //ta-rig h t
               for J := I to tamanhoTotal do
                   if codigoHTML[J] <> '<' then
-                     resultado := resultado + codigoHTML[J]
+                  Begin
+                     resultado := resultado + codigoHTML[J];
+                  end
                   else
-                  begin
-                      //result := StrToFloat(StringReplace(resultado, ',', '.',[rfReplaceAll]));
+                  begin                       
+                      resultado := StringReplace(resultado,'ht''>','',[rfReplaceAll,rfIgnoreCase]);
+                      //resultado := StringReplace(resultado,'%','',[rfReplaceAll,rfIgnoreCase]);
                       result := StrToFloat(resultado);
+
+                      //if result < 0 then
+                      //   result := 0.0;
+                         
                       exit;
                   end;
       end;

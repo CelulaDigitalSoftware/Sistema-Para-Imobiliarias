@@ -1328,7 +1328,6 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitWidth = 897
     object AbasPagamento: TPageControl
       Left = 2
       Top = 14
@@ -1341,10 +1340,6 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
       object TabPagamento: TTabSheet
         Caption = 'Pagamento'
         ImageIndex = 36
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 885
-        ExplicitHeight = 0
         object DBGridCheques: TDBGrid
           Left = 217
           Top = 0
@@ -1488,10 +1483,6 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
       object TabRecados: TTabSheet
         Caption = 'Recados e Anota'#231#245'es'
         ImageIndex = 25
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 885
-        ExplicitHeight = 0
         object memoPendencias: TListBox
           Left = 0
           Top = 0
@@ -1519,7 +1510,6 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
     Color = cl3DLight
     ParentColor = False
     TabOrder = 2
-    ExplicitLeft = 1108
     object BtnPagar: TBitBtn
       Left = 2
       Top = 193
@@ -1694,7 +1684,6 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitWidth = 1267
     DesignSize = (
       1095
       65)
@@ -1965,7 +1954,7 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
       Height = 21
       Cursor = crHandPoint
       Hint = 'Buscar por Categoria'
-      ItemHeight = 0
+      ItemHeight = 13
       TabOrder = 5
       Text = 'Categoria:'
       OnKeyDown = ValorOrdenacaoKeyDown
@@ -1977,7 +1966,7 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
       Height = 21
       Cursor = crHandPoint
       Hint = 'Buscar por Grupo'
-      ItemHeight = 0
+      ItemHeight = 13
       TabOrder = 6
       Text = 'Grupo:'
       OnKeyDown = ValorOrdenacaoKeyDown
@@ -1989,7 +1978,7 @@ object CAD_CaixasSimples: TCAD_CaixasSimples
       Height = 21
       Cursor = crHandPoint
       Hint = 'Buscar por Subgrupo'
-      ItemHeight = 0
+      ItemHeight = 13
       TabOrder = 7
       Text = 'Subgrupo:'
       OnKeyDown = ValorOrdenacaoKeyDown

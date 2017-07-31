@@ -2858,10 +2858,6 @@ object CAD_Aluguel: TCAD_Aluguel
           ImageIndex = 4
           OnHide = Tab_CondicoesHide
           OnShow = Tab_CondicoesShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Label45: TLabel
             Left = 397
             Top = 107
@@ -3159,7 +3155,7 @@ object CAD_Aluguel: TCAD_Aluguel
               CharCase = ecUpperCase
               DataField = 'REPASSE'
               DataSource = DS
-              ItemHeight = 0
+              ItemHeight = 13
               Items.Strings = (
                 'RETER COMISS'#195'O E REPASSAR ALUGUEL.'
                 'IM'#211'VEL PR'#211'PRIO, N'#195'O REPASSAR.'
@@ -3176,7 +3172,7 @@ object CAD_Aluguel: TCAD_Aluguel
               CharCase = ecUpperCase
               DataField = 'CORRESPONDENCIA'
               DataSource = DS
-              ItemHeight = 0
+              ItemHeight = 13
               Items.Strings = (
                 'ENDERE'#199'O DO INQUILINO.'
                 'ENDERE'#199'O DO PROPRIET'#193'RIO.'
@@ -3232,7 +3228,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
-              ItemHeight = 0
+              ItemHeight = 13
               ParentFont = False
               TabOrder = 10
               Items.Strings = (
@@ -3383,7 +3379,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Cursor = crHandPoint
               DataField = 'REAJUSTE'
               DataSource = DS
-              ItemHeight = 0
+              ItemHeight = 13
               Items.Strings = (
                 'IGP-DI (FGV)'
                 'IGP-M (FGV)'
@@ -3688,7 +3684,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
-              ItemHeight = 0
+              ItemHeight = 13
               ParentFont = False
               ParentShowHint = False
               ShowHint = True
@@ -3710,10 +3706,6 @@ object CAD_Aluguel: TCAD_Aluguel
           Caption = 'Gera'#231#227'o do Financeiro'
           ImageIndex = 17
           OnShow = TabSheet1Show
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object GroupBox24: TGroupBox
             Left = 0
             Top = 145
@@ -4096,7 +4088,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = [fsBold]
-              ItemHeight = 0
+              ItemHeight = 13
               ParentFont = False
               ParentShowHint = False
               ShowHint = True
@@ -4122,7 +4114,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = [fsBold]
-              ItemHeight = 0
+              ItemHeight = 13
               ParentFont = False
               ParentShowHint = False
               ShowHint = True
@@ -4979,10 +4971,6 @@ object CAD_Aluguel: TCAD_Aluguel
           Caption = 'Resumo'
           ImageIndex = 12
           OnShow = tabFinanceiroShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object GroupBox11: TGroupBox
             Left = 0
             Top = 0
@@ -5706,10 +5694,6 @@ object CAD_Aluguel: TCAD_Aluguel
           Caption = 'Reajustes'
           ImageIndex = 4
           OnShow = tabReajustesShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object GroupBox21: TGroupBox
             Left = 710
             Top = 0
@@ -5861,7 +5845,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.649645856480000000
+              Date = 39647.679510254630000000
               TabOrder = 3
             end
             object EditValorDiaForma: TComboBox
@@ -5869,7 +5853,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Top = 14
               Width = 191
               Height = 21
-              ItemHeight = 0
+              ItemHeight = 13
               TabOrder = 4
               Text = 'Escolha a Forma'
               OnCloseUp = EditValorDiaFormaCloseUp
@@ -5974,7 +5958,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.649646319440000000
+              Date = 39647.679510254630000000
               TabOrder = 2
             end
             object EditValorValorForma: TComboBox
@@ -5982,7 +5966,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Top = 16
               Width = 191
               Height = 21
-              ItemHeight = 0
+              ItemHeight = 13
               TabOrder = 3
               Text = 'Escolha a Forma'
               OnCloseUp = EditValorValorFormaCloseUp
@@ -7273,14 +7257,10 @@ object CAD_Aluguel: TCAD_Aluguel
           Caption = 'Contas'
           ImageIndex = 16
           OnShow = TabSheet2Show
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Label123: TLabel
             Left = 0
             Top = 0
-            Width = 89
+            Width = 912
             Height = 16
             Align = alTop
             Alignment = taCenter
@@ -7291,11 +7271,12 @@ object CAD_Aluguel: TCAD_Aluguel
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 89
           end
           object Label124: TLabel
             Left = 0
             Top = 171
-            Width = 73
+            Width = 912
             Height = 16
             Align = alTop
             Alignment = taCenter
@@ -7306,6 +7287,7 @@ object CAD_Aluguel: TCAD_Aluguel
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 73
           end
           object DBGrid5: TDBGrid
             Left = 0
@@ -7733,10 +7715,6 @@ object CAD_Aluguel: TCAD_Aluguel
           ImageIndex = 29
           OnHide = Tab_GarantiaHide
           OnShow = Tab_GarantiaShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object GroupBox10: TGroupBox
             Left = 0
             Top = 0
@@ -7889,7 +7867,7 @@ object CAD_Aluguel: TCAD_Aluguel
                 Width = 167
                 Height = 21
                 CharCase = ecUpperCase
-                ItemHeight = 0
+                ItemHeight = 13
                 TabOrder = 6
               end
             end
@@ -8174,7 +8152,7 @@ object CAD_Aluguel: TCAD_Aluguel
                 Width = 142
                 Height = 21
                 CharCase = ecUpperCase
-                ItemHeight = 0
+                ItemHeight = 13
                 TabOrder = 6
               end
               object ComboGarantiaTipo: TComboBox
@@ -8183,7 +8161,7 @@ object CAD_Aluguel: TCAD_Aluguel
                 Width = 142
                 Height = 21
                 CharCase = ecUpperCase
-                ItemHeight = 0
+                ItemHeight = 13
                 TabOrder = 7
                 Items.Strings = (
                   'ALUGUEL ADIATADO'
@@ -8467,10 +8445,6 @@ object CAD_Aluguel: TCAD_Aluguel
           ImageIndex = 102
           TabVisible = False
           OnShow = TabSheet3Show
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object PageControl1: TPageControl
             Left = 0
             Top = 0
@@ -8482,10 +8456,6 @@ object CAD_Aluguel: TCAD_Aluguel
             TabOrder = 0
             object TabSheet4: TTabSheet
               Caption = 'Renova'#231#245'es'
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object DBGrid6: TDBGrid
                 Left = 0
                 Top = 195
@@ -8507,10 +8477,6 @@ object CAD_Aluguel: TCAD_Aluguel
           ImageIndex = 8
           OnHide = TabSheet5Hide
           OnShow = TabSheet5Show
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Label135: TLabel
             Left = 239
             Top = 231

@@ -111,6 +111,10 @@ object CAD_Mensagem: TCAD_Mensagem
     object TabMensagem: TTabSheet
       Caption = 'Enviar Mensagem'
       ImageIndex = 60
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 11
         Top = 211
@@ -653,7 +657,7 @@ object CAD_Mensagem: TCAD_Mensagem
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
-        ItemHeight = 13
+        ItemHeight = 0
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
@@ -689,6 +693,10 @@ object CAD_Mensagem: TCAD_Mensagem
       ImageIndex = 3
       OnHide = TabMensagemRecebidaHide
       OnShow = TabMensagemRecebidaShow
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -960,6 +968,10 @@ object CAD_Mensagem: TCAD_Mensagem
       Caption = 'Mensagens Enviadas'
       ImageIndex = 31
       OnShow = TabAdminShow
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0

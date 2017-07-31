@@ -218,6 +218,7 @@ type
         caixaLocal: String;
         whereEntrada, whereSaida: String;
         registroSelecionado, usaCheque: Boolean;
+        contaAluguel: Integer;
         procedure verificaPermissaoTela();
         function verificaData(): String;
         procedure limpaDatas();
@@ -1672,6 +1673,7 @@ begin
      registroSelecionado := true;
      ValorDataBase.Hint := LabelDataBase.Hint;
      LabelDataBase.Font.Color := clBlack;
+     contaAluguel := 0;
 
      varSQLDeposito := TZQuery.Create(SELF);
      varSQLDeposito.Connection := PRINCIPAL.Conexao;
@@ -1894,6 +1896,9 @@ procedure TCAD_CaixasSimples.SelecionarConta1Click(Sender: TObject);
 var sqlConsulta: TZQuery;
 begin
      selecaoADDConta(DM_FINANCEIRO.ZCaixaSimplesID_CAIXA.AsString);
+
+     if (DM_FINANCEIRO.ZCaixaSimplesID_SUBTIPO.AsInteger = 3) and (contaAluguel = 0) then
+        contaAluguel := DM_FINANCEIRO.ZCaixaSimplesID_CAIXA.AsInteger;
            
      if caixaLocal = 'ENTRADA' then
      Begin
@@ -1965,6 +1970,7 @@ procedure TCAD_CaixasSimples.selecaoLIMPA();
 begin
      rowEntrada.Clear;
      rowSaida.Clear;
+     contaAluguel := 0;
 end;
 
 procedure TCAD_CaixasSimples.selecaoELABORAR();

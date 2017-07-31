@@ -488,7 +488,7 @@ Begin
       idSMTP1X.Host := smtpServidor;
       idSMTP1X.Username := smtpUsuario;
       idSMTP1X.Password := smtpSenha;
-      idSMTP1X.ConnectTimeout := 20000; 
+      idSMTP1X.ConnectTimeout := 10000; //20000 
 
       // configurações adicionais servidor SMTP com autenticação 
       with idSMTP1X do 
@@ -501,7 +501,7 @@ Begin
             //UseTLS := utUseImplicitTLS; 
          except 
             on E: Exception do 
-            begin 
+            begin
                IOHandler := TIdIOHandler.MakeDefaultIOHandler( nil ); 
                UseTLS := utNoTLSSupport;
             end; 
@@ -520,15 +520,16 @@ Begin
       idmessage1X.Encoding := MeMIME;
       idmessage1X.ContentType:='multipart/mixed';
       idmessage1X.Subject := UpperCase(assunto)+' ('+LowerCase(getConf('EMPRESA_EMAIL'))+')';
-      idmessage1X.From.Address := smtpFrom; // email de origem
+      idmessage1X.From.Name := getConf('EMPRESA_FANTASIA');
+      idmessage1X.From.Address := LowerCase(smtpFrom); // email de origem
       idmessage1X.ReplyTo.EMailAddresses := LowerCase(getConf('EMPRESA_EMAIL'));
-      idmessage1X.Recipients.EmailAddresses := destinatarioEmail; // email de destino
+      idmessage1X.Recipients.EmailAddresses := LowerCase(destinatarioEmail); // email de destino
 
       // Corpo da Mensagem (use aqui um HTML ou texto que deseja enviar
       // juntamente com a mensagem.
-      TextoMail := TIdText.Create(idmessage1X.MessageParts);
-      TextoMail.Body.Text := UpperCase(texto);
-      TextoMail.ContentType := 'text/plain';
+      //TextoMail := TIdText.Create(idmessage1X.MessageParts);
+      //TextoMail.Body.Text := UpperCase(texto);
+      //TextoMail.ContentType := 'text/html'; //text/plain
 
       if modeloEmail = 0 then
       begin
@@ -536,12 +537,12 @@ Begin
         Html.Body.Text := '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">'+
         '<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta http-equiv="Content-Language" content="pt-br" /></head>'+
         '<table align="center" border="0" cellpadding="0" cellspacing="1" style="width:100%">'+
-        '<tbody><tr><td><h1><img src="http://'+LowerCase(getConf('EMPRESA_HOMEPAGE'))+'/fotos_imoveis/LOGOPADRAO.BMP" style="height:42px; width:133px" /></h1></td><td>&nbsp;</td></tr><tr><td>'+
+        '<tbody><tr><td>'+
         '<h1>'+getConf('EMPRESA_FANTASIA')+'</h1>'+
 			  '<p>Olá <strong>'+UpperCase(destinatarioNome)+'</strong>, este e-mail está sendo enviado de forma automática através do nosso sistema interno. Se caso desejar responder, favor entrar em contato diretamente com a nossa imobiliária através do e-mail ( '+LowerCase(getConf('EMPRESA_EMAIL'))+' ) ou pelo(s) telefone(s) '+getConf('EMPRESA_TELEFONE')+'. Voc&ecirc; ainda pode entrar em contato conosco usando o formulário de contato em nosso <a href="http://'+LowerCase(getConf('EMPRESA_HOMEPAGE'))+'">site clicando aqui</a>.</p>'+
-			  '</td><td><h1><img src="http://celuladigital.com.br/imagens/imgEmail.jpg" style="height:200px; width:160px" /></h1>'+
+			  '</td><td><h1><img src="http://i.imgur.com/vAQgJHi.jpg" style="height:200px; width:160px" /></h1>'+
 			  '</td></tr><tr><td><strong>Mensagem:</strong><br >'+UpperCase(texto)+'<br ></td><td>&nbsp;</td></tr><tr><td><br ><br ><strong>Informativo:</strong><br >'+
-			  '<small>Caso não deseje receber nossos informativos, entre em contato com a <strong>'+getConf('EMPRESA_FANTASIA')+' Creci: '+getConf('EMPRESA_CRECI')+'</strong> e peça a sua remoção dos envios.</small></td>'+
+			  '<small>Caso não deseje receber nossos informativos, entre em contato com a nossa imobiliária ou clique no link abaixo:</small></td>'+
 			  '<td>&nbsp;</td></tr></tbody></table></html>';
         Html.ContentType := 'text/html';
       end;

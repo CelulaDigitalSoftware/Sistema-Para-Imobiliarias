@@ -242,23 +242,23 @@ begin
      ZSql.First;
 
      html := '<table style="text-align: left; width: 100%;" border="1" cellpadding="1" cellspacing="1"> '+
-     ' <tbody><tr><td style="vertical-align: top;"><b>Código</b><br> '+
-     ' </td><td style="vertical-align: top;"><b>Urgência</b><br> '+
-     ' </td><td style="vertical-align: top;"><b>Data Referência</b><br> '+
-     ' </td><td style="vertical-align: top;"><b>Remetente</b><br> '+
-     ' </td><td style="vertical-align: top;"><b>Destinatário</b><br> '+
-     ' </td><td style="vertical-align: top;"><b>Mensagem</b><br> '+
+     ' <tbody><tr><td style="vertical-align: top;"><b>Código</b><br/> '+
+     ' </td><td style="vertical-align: top;"><b>Urgência</b><br/> '+
+     ' </td><td style="vertical-align: top;"><b>Data Referência</b><br/> '+
+     ' </td><td style="vertical-align: top;"><b>Remetente</b><br/> '+
+     ' </td><td style="vertical-align: top;"><b>Destinatário</b><br/> '+
+     ' </td><td style="vertical-align: top;"><b>Mensagem</b><br/> '+
      ' </td></tr>';
 
      while NOT zsql.Eof do
      Begin
           html := html+
-' <tr><td style="vertical-align: top;">'+ZSql.FieldByName('ID_LOG').AsString+'<br> '+
-' </td><td style="vertical-align: top;">'+ZSql.FieldByName('OBS').AsString+'<br> '+
-' </td><td style="vertical-align: top;">'+ZSql.FieldByName('DATA').AsString+'<br> '+
-' </td><td style="vertical-align: top;">'+ZSql.FieldByName('REMETENTE').AsString+'<br> '+
-' </td><td style="vertical-align: top;">'+ZSql.FieldByName('DESTINATARIO').AsString+'<br> '+
-' </td><td style="vertical-align: top;">'+ZSql.FieldByName('CAMPOS').AsString+'<br> '+
+' <tr><td style="vertical-align: top;">'+ZSql.FieldByName('ID_LOG').AsString+'<br/> '+
+' </td><td style="vertical-align: top;">'+ZSql.FieldByName('OBS').AsString+'<br/> '+
+' </td><td style="vertical-align: top;">'+ZSql.FieldByName('DATA').AsString+'<br/> '+
+' </td><td style="vertical-align: top;">'+ZSql.FieldByName('REMETENTE').AsString+'<br/> '+
+' </td><td style="vertical-align: top;">'+ZSql.FieldByName('DESTINATARIO').AsString+'<br/> '+
+' </td><td style="vertical-align: top;">'+ZSql.FieldByName('CAMPOS').AsString+'<br/> '+
 ' </td></tr>';
   ZSql.Next;
      end;
@@ -320,7 +320,7 @@ begin
           if compAlerta.Checked then
           begin
                varSQL := unUtilitario.getSelect('select email, nome  from usuario where ativo = ''SIM'' and id_usuario = '+ IDCampoSTR(compPessoa.Text) );
-               PRINCIPAL.enviaEmail(0, 'RECADO DO SISTEMA', varSQL.FieldByName('email').AsString, varSQL.FieldByName('nome').AsString, '', 'REMETENTE: '+getUser('USUARIO')+'<br>URGÊNCIA (1 À 4):'+IntToStr(compUrgencia.Position)+'<br >RECADO:'+Trim(formataTextoSQL(compTexto.Text)));
+               PRINCIPAL.enviaEmail(0, 'RECADO DO SISTEMA', varSQL.FieldByName('email').AsString, varSQL.FieldByName('nome').AsString, '', 'REMETENTE: '+getUser('USUARIO')+'<br/>URGÊNCIA (1 À 4):'+IntToStr(compUrgencia.Position)+'<br >RECADO:'+Trim(formataTextoSQL(compTexto.Text)));
           end;
      end
      else

@@ -340,11 +340,11 @@ Begin
         ForceDirectories(diretorio);
 
      //Mudar o tamanho para não demorar muito e ocupar espaço no servidor
-     ResizeImage('\\'+getUser('SERVIDOR')+'\IMOBILIARIA\IMG\IMOVEL\'+foto, 600, diretorio+'\', UpperCase(foto));
+     ResizeImage('\\'+getUser('SERVIDOR')+'\IMOBILIARIA\IMG\IMOVEL\'+UpperCase(foto), 600, diretorio+'\', UpperCase(foto));
      PRINCIPAL.ObjFTP.Put(diretorio+'\'+UpperCase(foto));
 
-     if FileExists(diretorio+'\'+foto) then
-        DeleteFile(pchar(diretorio+'\'+foto));
+     if FileExists(diretorio+'\'+UpperCase(foto)) then
+        DeleteFile(pchar(diretorio+'\'+UpperCase(foto)));
 
      Try
          TRY
