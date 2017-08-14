@@ -4852,7 +4852,7 @@ end;
 procedure TCAD_Imovel.Btn_ImprimirClick(Sender: TObject);
 Var
    Escolha, nomeArquivo, texto: String;
-   varSQL, varSQL2: TZQuery;
+   varSQL, varSQL2, varSQLProp: TZQuery;
    ar: array of string;
    html: AnsiString;
    i, x: integer;
@@ -4874,7 +4874,7 @@ begin
           exit;
      end;
 
-     Escolha := InputBox('Escolha do tipo de relatório','1 - Completo COM FOTO.'+#13+'14 - Completo SEM FOTO.'#13+'2 - Resumido'+#13+'3 - Resumido (c/ características) '+#13+'4 - Super Resumido' + #13 +'11 - Super Resumido (Controle)'+ #13+ '12 - Imóveis por Bairro' + #13+ '13 - Anuncio de Imóveis' + #13 + ' ----------- ' + #13 + '5 - Vistoria'+#13+'6 - Documentos do Word'+#13+'7 - Fotos dos Imóveis'+ #13 + ' ----------- ' + #13 +'8 - Relação Relógio de Luz'+#13+'9 - Relação Relógio de Água'+#13+'10 - Relação de IPTU`s (Controle)' , '1');
+     Escolha := InputBox('Escolha do tipo de relatório','1 - Completo COM FOTO.'+#13+'14 - Completo SEM FOTO.'#13+'2 - Resumido'+#13+'3 - Resumido (c/ características) '+#13+'4 - Super Resumido' + #13 +'11 - Super Resumido (Controle)'+ #13+ '12 - Imóveis por Bairro' + #13+ '13 - Anuncio de Imóveis' + #13 + ' ----------- ' + #13 + '5 - Vistoria'+#13+'6 - Documentos do Word'+#13+'7 - Fotos dos Imóveis'+ #13 + ' ----------- ' + #13 +'8 - Relação Relógio de Luz'+#13+'9 - Relação Relógio de Água'+#13+'10 - Relação de IPTU`s (Controle)'+#13+'15 - Relação de Imóveis' , '1');
 
      if escolha = '8' then
      Begin
@@ -4955,6 +4955,63 @@ begin
                Writeln(Arquivo,' ');
                varSQL.Next;
           end;
+
+          CloseFile(Arquivo);
+
+          WinExec(pchar('notepad "'+nomeArquivo+'"'), SW_SHOW);
+     end;
+
+
+     if escolha = '15' then
+     Begin
+          // NOME DO PROPRIETÁRIO, ENDEREÇO DO IMÓVEL, VALOR e ANÚNCIO DE INTERNET?
+          nomeArquivo := ExtractFilePath(ParamStr(0))+'REL\'+getConf('CLIENTE')+'_Relatorio_Simples_Imoveis.txt';
+          AssignFile(Arquivo, nomeArquivo);
+          Rewrite(Arquivo);
+
+          //Gera Relatório
+          Writeln(Arquivo,'RELATÓRIO SIMPLIFICADO DE IMÓVEIS. '+DateTimeToStr(Date()+Time()));
+          Writeln(Arquivo,' ');
+          Writeln(Arquivo,' ');
+
+          //Dados do Imovel
+          varSQL :=  getSelect('select i.ID_IMOVEL, i.complemento, i.numero, l.*, c.nome as cidade, b.nome as bairro, u.sigla as uf, I.valor_real, I.valor_venda, I.valor_aluquel, '+
+          ' (SELECT FIRST 1 DESCRICAO FROM ANUNCIO WHERE MEIO = ''INTERNET'' AND ATIVO = ''SIM'' AND ID_IMOVEL = i.id_imovel ORDER BY DATA_INICIO DESC) as ANUNCIO_INTERNET '+
+          ' from imovel i '+
+          ' inner join logradouro l on i.id_logradouro = l.id_logradouro '+
+          ' inner join cidade c on l.id_cidade = c.id_cidade '+
+          ' inner join bairro b on l.id_bairro = b.id_bairro '+
+          ' inner join uf u on u.id_sigla = l.id_sigla '+
+          ' where i.id_imovel in ('+alinhaStringlist(SelecaoImovel)+') '+
+          ' order by L.nome, I.numero');
+
+          while not varSQL.Eof do
+          Begin
+               Writeln(Arquivo,'IMÓVEL ('+varSQL.FieldByName('ID_IMOVEL').AsString+'): '+varSQL.FieldByName('TIPO').AsString+' '+varSQL.FieldByName('NOME').AsString+' '+varSQL.FieldByName('NUMERO').AsString+', '+ varSQL.FieldByName('COMPLEMENTO').AsString +' '+varSQL.FieldByName('BAIRRO').AsString+' '+varSQL.FieldByName('CIDADE').AsString+'-'+varSQL.FieldByName('UF').AsString+' '+varSQL.FieldByName('CEP').AsString);
+
+               //Dados do PROPRIETARIO
+               varSQLProp := getSelect('select p.nome from pessoa_imovel pi '+
+               ' inner join pessoa p on p.id_pessoa = pi.id_pessoa '+
+               ' where pi.status = ''PROPRIETARIO'' AND pi.id_imovel = '+varSQL.FieldByName('ID_IMOVEL').AsString+' ORDER BY p.nome ');
+
+               while not varSQLProp.Eof do
+               Begin
+                    Writeln(Arquivo,'PROPRIETÁRIO: '+varSQLProp.FieldByName('NOME').AsString);
+                    varSQLProp.next;
+               end;
+               varSQLProp.close;
+
+               Writeln(Arquivo,'VALOR REAL: '+unUtilitario.getCurrToStr(varSQL.FieldByName('valor_real').AsCurrency,TRUE)+
+               ' VALOR VENDA: '+unUtilitario.getCurrToStr(varSQL.FieldByName('valor_venda').AsCurrency, TRUE)+
+               ' VALOR ALUGUEL: '+unUtilitario.getCurrToStr(varSQL.FieldByName('valor_aluquel').AsCurrency,TRUE));
+
+               Writeln(Arquivo,'ANÚNCIO INTERNET: '+  StringReplace(varSQL.FieldByName('ANUNCIO_INTERNET').AsString, sLineBreak, ' ', [rfReplaceAll]) );
+               Writeln(Arquivo,'----------------------------');
+               varSQL.Next;
+          end;
+
+          Writeln(Arquivo,'TOTAL DE IMÓVEIS: '+ IntToStr(varSQL.RecordCount));
+
 
           CloseFile(Arquivo);
 
