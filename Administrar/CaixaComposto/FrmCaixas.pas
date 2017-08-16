@@ -3099,16 +3099,28 @@ begin
       begin
            diaGridSaida.Canvas.Brush.Color:= clBlack;
            diaGridSaida.Canvas.Font.Color:= clSilver;
-           diaGridSaida.Canvas.FillRect(Rect);
-           diaGridSaida.DefaultDrawColumnCell(Rect, DataCol, Column, State);
       end
     ELSE
       begin
            diaGridSaida.Canvas.Brush.Color:= clWhite;
            diaGridSaida.Canvas.Font.Color:= clBlack;
-           diaGridSaida.Canvas.FillRect(Rect);
-           diaGridSaida.DefaultDrawColumnCell(Rect, DataCol, Column, State);
       end;
+
+  IF (COLUMN.FieldName = 'VALOR') THEN
+    if (diaSQLSaida.FieldByName('HONORARIO_1ALUGUEL').AsString = 'SIM') THEN
+    begin
+         diaGridSaida.Canvas.Font.Color:= clOlive;     // voce digitou 2390 o correto ée 2309
+         diaGridSaida.Canvas.Font.Style := Grid_Busca.Canvas.Font.Style + [fsBold, fsUnderline];
+    end
+    else
+    Begin
+         diaGridSaida.Canvas.Font.Color:= clBlack;
+         diaGridSaida.Canvas.Font.Style := Grid_Busca.Canvas.Font.Style;
+    end;
+
+    diaGridSaida.Canvas.FillRect(Rect);
+    diaGridSaida.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+
 end;
 
 procedure TCAD_Caixas.diaLabelCaixaDblClick(Sender: TObject);
@@ -3372,6 +3384,7 @@ begin
   //CRIA O OBJETO PARA A SELEÇÃO EM DEMANDA
   SelecaoEntrada := TStringList.Create;
 
+
   //Select para o Caixa Rápido
   diaSelectEntrada := 'select c.data_pgto, c.documento, c.id_caixa, c.valor, p.nome as PESSOA, (l.nome ||'' - ''|| i.numero) as RUA,'+
        ' (select result from spvalorcobranca1('+getConf('EMPRESA_CALCULO')+', c.data_ref, c.data_pgto, c.valor, c.valor_juros,'+
@@ -3381,10 +3394,11 @@ begin
        ' left join logradouro l on l.id_logradouro = i.id_logradouro '+
        ' where c.ativo = ''SIM'' and c.pendente = ''NAO'' ';
 
-  diaSelectSaida := 'select c.data_pgto, c.documento, c.id_caixa, c.valor, p.nome as PESSOA, (l.nome ||'' - ''|| i.numero) as RUA,'+
+  diaSelectSaida := 'select con.honorario_1aluguel, c.data_pgto, c.documento, c.id_caixa, c.valor, p.nome as PESSOA, (l.nome ||'' - ''|| i.numero) as RUA,'+
        ' (select result from spvalorcobranca1('+getConf('EMPRESA_CALCULO')+', c.data_ref, c.data_pgto, c.valor, c.valor_juros,'+
        ' c.valor_multa, c.valor_desconto)) as VALORCALCULADO from caixa_SAIDA c'+
        ' left join pessoa p on p.id_pessoa = c.id_pessoa '+
+       ' left join contrato con on con.id_contrato = c.id_contrato' +
        ' left join imovel i on i.id_imovel = c.id_imovel '+
        ' left join logradouro l on l.id_logradouro = i.id_logradouro '+
        ' where c.ativo = ''SIM'' and c.pendente = ''NAO'' ';

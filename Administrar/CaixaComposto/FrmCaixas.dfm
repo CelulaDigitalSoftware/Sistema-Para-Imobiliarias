@@ -627,7 +627,7 @@ inherited CAD_Caixas: TCAD_Caixas
   inherited PageControl1: TPageControl
     Width = 930
     Height = 470
-    ActivePage = Tab_Pesquisa_Saida
+    ActivePage = TabCaixaDia
     ExplicitWidth = 930
     ExplicitHeight = 470
     object TabCaixaDia: TTabSheet [0]
@@ -3202,6 +3202,7 @@ inherited CAD_Caixas: TCAD_Caixas
             Expanded = False
             FieldName = 'ID_FUNCIONARIO'
             Title.Caption = 'Usu'#225'rio(a)'
+            Width = 64
             Visible = True
           end>
       end
@@ -5110,12 +5111,14 @@ inherited CAD_Caixas: TCAD_Caixas
                 Expanded = False
                 FieldName = 'DATA_ALT'
                 Title.Caption = 'Altera'#231#227'o'
+                Width = 64
                 Visible = True
               end
               item
                 Expanded = False
                 FieldName = 'DATA_CAD'
                 Title.Caption = 'Cadastro'
+                Width = 64
                 Visible = True
               end
               item
@@ -5986,6 +5989,7 @@ inherited CAD_Caixas: TCAD_Caixas
                 Expanded = False
                 FieldName = 'VALOR'
                 Title.Caption = 'Valor'
+                Width = 64
                 Visible = True
               end
               item
@@ -5999,6 +6003,7 @@ inherited CAD_Caixas: TCAD_Caixas
                 Expanded = False
                 FieldName = 'AGENCIA'
                 Title.Caption = 'Ag'#234'ncia'
+                Width = 64
                 Visible = True
               end
               item
