@@ -3114,10 +3114,12 @@ begin
     end
     else
     Begin
+         // setando a cor preta na letra caso nñao seja 'sim'
          diaGridSaida.Canvas.Font.Color:= clBlack;
          diaGridSaida.Canvas.Font.Style := Grid_Busca.Canvas.Font.Style;
     end;
-
+    // preenche a linha com a cor selecionada nas condicoes.  Exato
+    // O que ache de preencher o background (Brush?) ?
     diaGridSaida.Canvas.FillRect(Rect);
     diaGridSaida.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 
