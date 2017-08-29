@@ -730,7 +730,7 @@ begin
                DM_RELATORIOS.SQL2.SQL.Clear;
 
                //DM_RELATORIOS.SQL2.SQL.Text := 'select case when c.id_contrato is null then c.documento else ''CONTRATO: '' || c.id_contrato ||'' ''||c.documento end as documento, c.id_contrato, c.id_caixa, c.parcela, '+
-               DM_RELATORIOS.SQL2.SQL.Text := 'select case when c.id_contrato is null then c.documento else ''CONTRATO: '' || c.id_contrato ||'' ''||c.documento end as documento, c.id_contrato, c.id_caixa, c.parcela, '+
+               DM_RELATORIOS.SQL2.SQL.Text := 'select case when c.id_contrato is null then c.documento else SUBSTRING(''CONTRATO: '' || c.id_contrato ||'' ''||c.documento, 1, 74) end as documento, c.id_contrato, c.id_caixa, c.parcela, '+
                ' c.id_subtipo as PARCELA_TOTAL, c.valor_multa, c.valor_juros, c.valor_desconto, c.valor, c.data_ref, '+
                ' (select result from spvalorcobranca1('+COD_Calculo+', c.data_ref, '+DATA+', c.valor, c.valor_juros, '+
                ' c.valor_multa, c.valor_desconto)) as VALOR_REAL, P.nome, I.*, L.tipo||'' ''||L.nome AS LOGRADOURO, '+
