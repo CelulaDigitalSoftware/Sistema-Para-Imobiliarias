@@ -27,8 +27,6 @@ inherited CAD_Usuario: TCAD_Usuario
     ExplicitWidth = 402
     ExplicitHeight = 378
     inherited Tab_Pesquisa: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 25
       ExplicitWidth = 394
       ExplicitHeight = 349
       inherited Panel2: TPanel
@@ -108,8 +106,6 @@ inherited CAD_Usuario: TCAD_Usuario
       end
     end
     inherited Tab_Cadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 25
       ExplicitWidth = 394
       ExplicitHeight = 349
       inherited PageControl2: TPageControl
@@ -118,8 +114,6 @@ inherited CAD_Usuario: TCAD_Usuario
         ExplicitWidth = 394
         ExplicitHeight = 349
         inherited Tab_Informacoes: TTabSheet
-          ExplicitLeft = 4
-          ExplicitTop = 25
           ExplicitWidth = 386
           ExplicitHeight = 320
           inherited ScrollBox1: TScrollBox

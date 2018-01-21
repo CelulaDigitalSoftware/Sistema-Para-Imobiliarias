@@ -2115,6 +2115,12 @@ end;
 procedure TCAD_Caixas.Btn_ExcluirClick(Sender: TObject);
 begin
 
+     if not verificaPermissao('ADMINISTRAR >> CAIXA COMPOSTO = EXCLUIR') then
+     Begin
+          unUtilitario.setMensagem('Não tem permissão!','informa');
+          EXIT;
+     end;
+
      if NOT verificaPermissaoAdministrador('ENTRAR NA TELA DE CAIXA COMPOSTO E EXCLUIR UMA CONTA') then
         EXIT;
 

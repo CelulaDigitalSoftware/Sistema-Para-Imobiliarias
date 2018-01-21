@@ -79,10 +79,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
       Caption = 'Filtros de Busca'
       ImageIndex = 77
       OnContextPopup = tab_5ContextPopup
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label3: TLabel
         Left = 0
         Top = 0
@@ -447,10 +443,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
           TabOrder = 0
           object TabProprietario: TTabSheet
             Caption = 'Pessoa'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object EditNomePessoa: TEdit
               Left = 3
               Top = 17
@@ -566,10 +558,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
           object TabImovel: TTabSheet
             Caption = 'Im'#243'veis'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object EditNomeImovel: TEdit
               Left = 3
               Top = 23
@@ -727,10 +715,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
             Caption = 'Usu'#225'rios'
             ImageIndex = 2
             OnShow = TabSheet3Show
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object CheckUsuarios: TCheckBox
               Left = 196
               Top = 0
@@ -762,10 +746,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
             ImageIndex = 3
             OnHide = TabSaldosHide
             OnShow = TabSaldosShow
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object DBGrid3: TDBGrid
               Left = 0
               Top = 0
@@ -1141,10 +1121,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
     object TabInformacao: TTabSheet
       Caption = 'Informa'#231#245'es'
       ImageIndex = 62
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox24: TGroupBox
         Left = 109
         Top = 54
@@ -1677,7 +1653,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
         ParentFont = False
         TabOrder = 4
         OnDblClick = SelecaoImpressaoDblClick
-        ExplicitTop = 64
       end
       object ChartFluxo: TChart
         Left = 0
@@ -1914,10 +1889,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
     object Tab_1: TTabSheet
       Caption = 'Contas'
       ImageIndex = 31
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Grid_Entrada: TDBGrid
         Left = 0
         Top = 33
@@ -2261,10 +2232,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
       Caption = 'Movimenta'#231#227'o de Contas'
       ImageIndex = 15
       OnShow = TabSheet2Show
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label2: TLabel
         Left = 10
         Top = 125
@@ -2301,7 +2268,7 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
           Width = 246
           Height = 21
           Hint = 'Escolha a categoria / conta a sair o dinheiro'
-          ItemHeight = 0
+          ItemHeight = 13
           TabOrder = 0
           OnChange = comboOrigemChange
         end
@@ -2339,7 +2306,7 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
           Width = 246
           Height = 21
           Hint = 'Escolha a categoria / conta a sair o dinheiro'
-          ItemHeight = 0
+          ItemHeight = 13
           TabOrder = 0
           OnChange = comboDestinoChange
         end
@@ -2443,7 +2410,7 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
           Hint = 
             'Escolha o registro da empresa no cadastro de pessoas. N'#195'O altere' +
             ' nenhuma informa'#231#227'o.'
-          ItemHeight = 0
+          ItemHeight = 13
           TabOrder = 0
         end
       end
@@ -2468,10 +2435,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
       ImageIndex = 16
       OnHide = TabCobrancaHide
       OnShow = TabCobrancaShow
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox6: TGroupBox
         Left = 0
         Top = 306
@@ -3377,10 +3340,6 @@ object CAD_FluxoCaixa: TCAD_FluxoCaixa
       ImageIndex = 88
       OnHide = TabLogCobrancaHide
       OnShow = TabLogCobrancaShow
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel6: TPanel
         Left = 0
         Top = 0

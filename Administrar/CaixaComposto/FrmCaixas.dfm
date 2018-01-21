@@ -627,7 +627,7 @@ inherited CAD_Caixas: TCAD_Caixas
   inherited PageControl1: TPageControl
     Width = 930
     Height = 470
-    ActivePage = Tab_Pesquisa_Saida
+    ActivePage = TabCaixaDia
     ExplicitWidth = 930
     ExplicitHeight = 470
     object TabCaixaDia: TTabSheet [0]
@@ -1959,8 +1959,6 @@ inherited CAD_Caixas: TCAD_Caixas
     end
     inherited Tab_Pesquisa: TTabSheet
       Caption = 'Pesquisa &Entrada'
-      ExplicitLeft = 4
-      ExplicitTop = 25
       ExplicitWidth = 922
       ExplicitHeight = 441
       inherited Panel2: TPanel
@@ -3208,8 +3206,6 @@ inherited CAD_Caixas: TCAD_Caixas
     end
     inherited Tab_Cadastro: TTabSheet
       OnHide = Tab_CadastroHide
-      ExplicitLeft = 4
-      ExplicitTop = 25
       ExplicitWidth = 922
       ExplicitHeight = 441
       inherited PageControl2: TPageControl
@@ -3223,7 +3219,6 @@ inherited CAD_Caixas: TCAD_Caixas
         ExplicitHeight = 441
         inherited Tab_Informacoes: TTabSheet
           OnHide = Tab_InformacoesHide
-          ExplicitLeft = 4
           ExplicitTop = 28
           ExplicitWidth = 914
           ExplicitHeight = 409

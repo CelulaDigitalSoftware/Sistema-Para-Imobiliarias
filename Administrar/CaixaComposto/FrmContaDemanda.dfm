@@ -728,6 +728,10 @@ object ContaDemanda: TContaDemanda
     object EscolhaCAIXA: TTabSheet
       Caption = 'CAIXA'
       ImageIndex = 33
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -815,6 +819,10 @@ object ContaDemanda: TContaDemanda
           Caption = 'Alterar Categoria'
           ImageIndex = 17
           OnShow = TabCategoriaShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label10: TLabel
             Left = 8
             Top = 1
@@ -869,6 +877,10 @@ object ContaDemanda: TContaDemanda
         object TabGrupo: TTabSheet
           Caption = 'Alterar Grupo'
           OnShow = TabGrupoShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label3: TLabel
             Left = 8
             Top = 1
@@ -924,6 +936,10 @@ object ContaDemanda: TContaDemanda
           Caption = 'Alterar Subgrupo'
           ImageIndex = 1
           OnShow = TabSubgrupoShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label4: TLabel
             Left = 8
             Top = 1
@@ -978,6 +994,10 @@ object ContaDemanda: TContaDemanda
         object TabReferencia: TTabSheet
           Caption = 'Alterar Documento'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object BitBtn3: TBitBtn
             Left = 160
             Top = 94
@@ -1045,6 +1065,10 @@ object ContaDemanda: TContaDemanda
           Caption = 'Alterar Pessoa'
           ImageIndex = 4
           OnShow = TabPessoaShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object GridPessoa: TDBGrid
             Left = 0
             Top = 34
@@ -1125,6 +1149,10 @@ object ContaDemanda: TContaDemanda
           Caption = 'Alterar Im'#243'vel'
           ImageIndex = 5
           OnShow = TabImovelShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object DBText1: TDBText
             Left = 309
             Top = 11
@@ -1213,6 +1241,10 @@ object ContaDemanda: TContaDemanda
           Caption = 'Alterar Contrato'
           ImageIndex = 7
           OnShow = TabContratoShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object DBText2: TDBText
             Left = 309
             Top = 11
@@ -1328,6 +1360,10 @@ object ContaDemanda: TContaDemanda
         object TabBTReferencia: TTabSheet
           Caption = 'Alterar Dt. Refer'#234'ncia'
           ImageIndex = 9
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label8: TLabel
             Left = 51
             Top = 14
@@ -1454,12 +1490,16 @@ object ContaDemanda: TContaDemanda
           Caption = 'Alterar Dt. Pagamento'
           ImageIndex = 10
           OnShow = TabDTPagamentoShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object MesPagamento: TMonthCalendar
             Left = 8
             Top = 2
             Width = 155
             Height = 153
-            Date = 39106.743257141210000000
+            Date = 39106.745275775470000000
             TabOrder = 0
           end
           object BitBtn11: TBitBtn
@@ -1502,6 +1542,10 @@ object ContaDemanda: TContaDemanda
         object TabObs: TTabSheet
           Caption = 'Alterar Observa'#231#245'es'
           ImageIndex = 11
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object EditObes: TEdit
             Left = 8
             Top = 16
@@ -1568,6 +1612,10 @@ object ContaDemanda: TContaDemanda
         object TabFormPagamento: TTabSheet
           Caption = 'Estornar Contas'
           ImageIndex = 12
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object BitBtn13: TBitBtn
             Left = 115
             Top = 60
@@ -1608,6 +1656,10 @@ object ContaDemanda: TContaDemanda
         object TabPendente: TTabSheet
           Caption = 'Alterar Pendente'
           ImageIndex = 13
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object CheckPendente: TCheckBox
             Left = 160
             Top = 16
@@ -1660,6 +1712,10 @@ object ContaDemanda: TContaDemanda
         object TabValor: TTabSheet
           Caption = 'Alterar Valor'
           ImageIndex = 14
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object GroupBox5: TGroupBox
             Left = 3
             Top = 1
@@ -1878,6 +1934,10 @@ object ContaDemanda: TContaDemanda
         object TabExclusao: TTabSheet
           Caption = 'Excluir Contas'
           ImageIndex = 16
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object SpeedButton1: TSpeedButton
             Left = 27
             Top = 109
@@ -1938,6 +1998,10 @@ object ContaDemanda: TContaDemanda
         object TabDesconto: TTabSheet
           Caption = 'Alterar Desconto'
           ImageIndex = 14
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label12: TLabel
             Left = 150
             Top = 50
@@ -1993,6 +2057,10 @@ object ContaDemanda: TContaDemanda
         object TabJuros: TTabSheet
           Caption = 'Alterar Juros'
           ImageIndex = 15
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label5: TLabel
             Left = 245
             Top = 50
@@ -2048,6 +2116,10 @@ object ContaDemanda: TContaDemanda
         object TabMulta: TTabSheet
           Caption = 'Alterar Multa'
           ImageIndex = 16
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label11: TLabel
             Left = 245
             Top = 50
@@ -2103,6 +2175,10 @@ object ContaDemanda: TContaDemanda
         object TabGarantidos: TTabSheet
           Caption = 'Alterar Garantidos'
           ImageIndex = 17
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object CheckGarantido: TCheckBox
             Left = 176
             Top = 40
@@ -2155,6 +2231,10 @@ object ContaDemanda: TContaDemanda
         object TabParcela: TTabSheet
           Caption = 'Alterar Parcela'
           ImageIndex = 18
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label13: TLabel
             Left = 24
             Top = 23
@@ -2229,6 +2309,10 @@ object ContaDemanda: TContaDemanda
         object TabOperacao: TTabSheet
           Caption = 'Alterar Opera'#231#227'o'
           ImageIndex = 19
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object BitBtn21: TBitBtn
             Left = 160
             Top = 110
@@ -2294,7 +2378,7 @@ object ContaDemanda: TContaDemanda
             Top = 63
             Width = 130
             Height = 17
-            Caption = 'RETIRAR DEPOSITO'
+            Caption = 'Retirar DEP'#211'SITO'
             TabOrder = 4
           end
         end
@@ -2317,6 +2401,10 @@ object ContaDemanda: TContaDemanda
       Caption = 'MANIPULAR CONTAS'
       ImageIndex = 50
       OnShow = EscolhaManipulaShow
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label14: TLabel
         Left = 8
         Top = 55
@@ -2582,7 +2670,7 @@ object ContaDemanda: TContaDemanda
           Width = 195
           Height = 21
           Hint = 'Categoria'
-          ItemHeight = 13
+          ItemHeight = 0
           TabOrder = 0
         end
         object editTipo: TComboBox
@@ -2591,7 +2679,7 @@ object ContaDemanda: TContaDemanda
           Width = 195
           Height = 21
           Hint = 'Tipo'
-          ItemHeight = 13
+          ItemHeight = 0
           TabOrder = 1
         end
         object editSubtipo: TComboBox
@@ -2600,7 +2688,7 @@ object ContaDemanda: TContaDemanda
           Width = 195
           Height = 21
           Hint = 'Subtipo'
-          ItemHeight = 13
+          ItemHeight = 0
           TabOrder = 2
         end
         object editDocumento: TEdit
@@ -2632,7 +2720,7 @@ object ContaDemanda: TContaDemanda
             'a completamente'
           CharCase = ecUpperCase
           DropDownCount = 15
-          ItemHeight = 13
+          ItemHeight = 0
           TabOrder = 5
           Text = 'NOME DA PESSOA'
           OnDropDown = editNomePessoaDropDown
@@ -2665,6 +2753,10 @@ object ContaDemanda: TContaDemanda
     object EscolhaCONTRATO: TTabSheet
       Caption = 'CONTRATO'
       ImageIndex = 60
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
   end
 end

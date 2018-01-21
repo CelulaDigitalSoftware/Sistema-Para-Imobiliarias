@@ -57,6 +57,7 @@ function alinhaStringlist(lista: TStringList): String;
 function preparaNumeroBoleto(numero: String): String;
 procedure AjustarLargura(ComboBox: TComboBox);
 function retiraFormatacaoDinheiro(DinheiroFormatado: string): Double;
+function desmarcarDepositos(texto: String): string;
 function desmarcarBoletos(texto: String): string;
 function informacaoBoletos(texto: String): String;
 procedure espera(segundos: Smallint; texto: string);
@@ -498,6 +499,7 @@ Begin
      Application.Title := Titulo;
 end;
 
+{
 function desmarcarBoletos(texto: String): string;
 var I, pos1, pos2: integer;
 begin
@@ -520,7 +522,60 @@ begin
      else
      Begin
           PRINCIPAL.setMensagem('Não foi encontrado nenhuma marcação de boleto neste registro.');
+          result := trim(texto);
+     end;
+end;
+}
+
+function desmarcarBoletos(texto: String): string;
+var I, pos1, pos2: integer;
+begin
+
+     if POS('[BOLETO', texto) > 0 then
+     Begin
+          pos1 := Pos('[BOLETO',texto);
+          pos2 := Pos(']',texto);
+
+          for I := pos1 to pos2 do
+          Begin
+               texto[I]:= ' ';
+          end;
+
+          texto := trim(texto);
+
+          PRINCIPAL.setMensagem('A marcação do boleto foi removida com sucesso!');
           result := texto;
+     end
+     else
+     Begin
+          PRINCIPAL.setMensagem('Não foi encontrado nenhuma marcação de boleto neste registro.');
+          result := trim(texto);
+     end;
+end;
+
+function desmarcarDepositos(texto: String): string;
+var I, pos1, pos2: integer;
+begin
+
+     if POS('[DEPOSITO]', texto) > 0 then
+     Begin
+          pos1 := Pos('[DEPOSITO',texto);
+          pos2 := Pos(']',texto);
+
+          for I := pos1 to pos2 do
+          Begin
+               texto[I]:= ' ';
+          end;
+
+          texto := trim(texto);
+
+          PRINCIPAL.setMensagem('A marcação do deposito foi removida com sucesso!');
+          result := texto;
+     end
+     else
+     Begin
+          PRINCIPAL.setMensagem('Não foi encontrado nenhuma marcação de deposito neste registro.');
+          result := trim(texto);
      end;
 end;
 

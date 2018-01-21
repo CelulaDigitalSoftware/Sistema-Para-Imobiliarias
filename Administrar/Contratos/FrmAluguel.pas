@@ -1601,7 +1601,8 @@ if (strtoint(qtde) = 3)Then
 
      DM_REL.ZQUERY1.CLOSE;
      DM_REL.ZQUERY1.SQL.Clear;
-     DM_REL.ZQUERY1.SQL.Add('select c.*, i.*, l.*, b.nome as bairro, ci.nome as cidade, uf.sigla as uf from contrato c '+
+     DM_REL.ZQUERY1.SQL.Add('select c.*, i.*, l.*, b.nome as bairro, ci.nome as cidade, uf.sigla as uf '+
+     ' from contrato c '+
      ' LEFT join imovel i on i.id_imovel = c.id_imovel '+
      ' LEFT join logradouro l on l.id_logradouro = i.id_logradouro '+
      ' LEFT join cidade ci on ci.id_cidade = l.id_cidade '+
@@ -1692,8 +1693,8 @@ if (strtoint(qtde) = 3)Then
            DM_REL.ZQUERY1.FieldByName('CEP').AsString
            );
 
-           Writeln(Arquivo,'VALOR ORIGINAL: R$_________________   VALOR DESCONTO: R$_________________ ');
-           Writeln(Arquivo,'VALOR REAL: '+getCurrToStr(DM_REL.ZQUERY1.FieldByName('VALOR').AsCurrency, True)+ '   ** ÍNDICE DO MÊS: _________________   VALOR COM ÍNDICE: R$_________________');
+           Writeln(Arquivo,'VALOR ORIGINAL: '+getCurrToStr(DM_REL.ZQUERY1.FieldByName('VALOR').AsCurrency, True)+'   VALOR DESCONTO: R$_________________ ');
+           Writeln(Arquivo,'VALOR REAL: R$_________________   ** ÍNDICE DO MÊS: _________________   VALOR COM ÍNDICE: R$_________________');
            Writeln(Arquivo,'VALOR PEDIDO: R$_________________   ** PROPOSTA: R$_________________   ** VALOR FINAL: R$_________________');
            Writeln(Arquivo,'SEGURO (    ) COMERCIAL (    )   RESIDENCIAL: ** R$_________________ DIVIDIDO EM _____ PARCELAS');
            Writeln(Arquivo,'ANOTAÇÕES:');
@@ -1709,7 +1710,7 @@ if (strtoint(qtde) = 3)Then
            DM_REL.ZQUERY1.Next;
       end;
 
-      Writeln(Arquivo,'--------------------------------------------------------------------');
+      Writeln(Arquivo,'-');
       Writeln(Arquivo,' ');
       Writeln(Arquivo,'VALOR TOTAL: '+getCurrToStr(total,true) );
       Writeln(Arquivo,'QUANTIDADE DE CONTRATOS: '+IntToStr(DM_REL.ZQUERY1.RecordCount));
@@ -3142,13 +3143,13 @@ procedure TCAD_Aluguel.Grid_BuscaDrawColumnCell(Sender: TObject;
   IF (COLUMN.Title.CAPTION = 'Código') AND (DS.DataSet.RecordCount > 0) THEN
   begin
 
-       if (DS.DataSet.FieldByName('HONORARIO_ADMIN').AsString = 'SIM') THEN
+       {if (DS.DataSet.FieldByName('HONORARIO_ADMIN').AsString = 'SIM') THEN
             Grid_Busca.Canvas.Brush.Color:= clGradientActiveCaption
        else
-           Grid_Busca.Canvas.Brush.Color:= clWhite;
+           Grid_Busca.Canvas.Brush.Color:= clWhite;    }
 
 
-       if (DS.DataSet.FieldByName('HONORARIO_1ALUGUEL').AsString = 'SIM') THEN
+       if (DS.DataSet.FieldByName('HONORARIO_ADMIN').AsString = 'SIM') THEN    // HONORARIO_1ALUGUEL
        begin
             Grid_Busca.Canvas.Font.Color:= clOlive;
             Grid_Busca.Canvas.Font.Style := Grid_Busca.Canvas.Font.Style + [fsBold, fsUnderline];
@@ -4583,7 +4584,7 @@ end;
 
 procedure TCAD_Aluguel.BitBtn11Click(Sender: TObject);
 begin
-      ShellExecute(0, 'open', 'http://www.fazendocontas.com.br/index.php?option=com_content&view=article&id=201:irrf-imposto-de-renda-retido-na-fonte-no-aluguel&catid=37:financas&Itemid=81', nil, nil, SW_SHOWNORMAL);
+      ShellExecute(0, 'open', 'http://www.calculoexato.net/calculos-trabalhistas/como-calcular-imposto-de-renda/', nil, nil, SW_SHOWNORMAL);
 end;
 
 procedure TCAD_Aluguel.btnCriarImpostoClick(Sender: TObject);
@@ -4929,7 +4930,7 @@ end;
 
 procedure TCAD_Aluguel.BitBtn6Click(Sender: TObject);
 begin
-      ShellExecute(0, 'open', 'http://www.receita.fazenda.gov.br/Aliquotas/TabProgressivaCalcMens.htm', nil, nil, SW_SHOWNORMAL);
+      ShellExecute(0, 'open', 'http://idg.receita.fazenda.gov.br/acesso-rapido/tributos/irpf-imposto-de-renda-pessoa-fisica#calculo_mensal_IRPF', nil, nil, SW_SHOWNORMAL);
 end;
 
 procedure TCAD_Aluguel.checkPessoasContratosClick(Sender: TObject);

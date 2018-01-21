@@ -155,7 +155,7 @@
 			<VersionInfo Name="MajorVer">2</VersionInfo>
 			<VersionInfo Name="MinorVer">1</VersionInfo>
 			<VersionInfo Name="Release">1</VersionInfo>
-			<VersionInfo Name="Build">242</VersionInfo>
+			<VersionInfo Name="Build">243</VersionInfo>
 			<VersionInfo Name="Debug">False</VersionInfo>
 			<VersionInfo Name="PreRelease">False</VersionInfo>
 			<VersionInfo Name="Special">False</VersionInfo>
@@ -167,7 +167,7 @@
 		<VersionInfoKeys>
 			<VersionInfoKeys Name="CompanyName">Celula Digital Software</VersionInfoKeys>
 			<VersionInfoKeys Name="FileDescription">Aplicativo</VersionInfoKeys>
-			<VersionInfoKeys Name="FileVersion">2.1.1.242</VersionInfoKeys>
+			<VersionInfoKeys Name="FileVersion">2.1.1.243</VersionInfoKeys>
 			<VersionInfoKeys Name="InternalName">Celula_Imobiliaria.exe</VersionInfoKeys>
 			<VersionInfoKeys Name="LegalCopyright">2005-2016 Celula Digital Software</VersionInfoKeys>
 			<VersionInfoKeys Name="LegalTrademarks">2005-2016 Celula Digital Software -  www.celuladigital.com.br -  Todos os direitos reservados.</VersionInfoKeys>

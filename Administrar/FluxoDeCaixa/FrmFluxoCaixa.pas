@@ -1222,7 +1222,14 @@ TRY
                     textoSelecao := '- Contas Individuais';
           end;
 
-          order := Trim(InputBox('Escolha a Ordenação:','1 - Data de Venc. / Pessoa;'+#13+'2 - Data de Pgto. / Pessoa;'+#13+'3 - Data de Pgto. / Data de Venc.;'+#13+'4 - Endereço. / Data de Venc.;'+#13+'5 - Código.;'+#13+'6 - Pessoa / Data de Venc.;','1'));
+          order := Trim(InputBox('Escolha a Ordenação:',
+          '1 - Data de Venc. / Pessoa.;'+#13+
+          '2 - Data de Pgto. / Pessoa.;'+#13+
+          '3 - Data de Pgto. / Data de Venc.;'+#13+
+          '4 - Endereço. / Data de Venc.;'+#13+
+          '5 - Código.;'+#13+
+          '6 - Pessoa. / Data de Venc.;'+#13+
+          '7 - Data de Venc. / Parcela.;','1'));
           if not verificaStringInt(order) Then
           begin
                setMensagem('Favor informar um NÚMERO válido!','erro');
@@ -1269,6 +1276,14 @@ TRY
                ZEntrada.SQL.Add(' order by p.nome, c.data_ref DESC ');
                ZSaida.close;
                ZSaida.SQL.Add(' order by p.nome, c.data_ref DESC ');
+          end
+          else
+          if order = '7' then
+          Begin
+               ZEntrada.close;
+               ZEntrada.SQL.Add(' order by c.data_ref, c.parcela ');
+               ZSaida.close;
+               ZSaida.SQL.Add(' order by c.data_ref, c.parcela ');
           end
           else
           Begin

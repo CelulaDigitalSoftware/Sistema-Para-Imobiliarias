@@ -3282,7 +3282,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 15
               Hint = 'Depositar ao Propriet'#225'rio?'
               Caption = 'Dep'#243'sito?'
-              DataField = 'HONORARIO_1ALUGUEL'
+              DataField = 'HONORARIO_ADMIN'
               DataSource = DS
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
@@ -5845,7 +5845,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.679510254630000000
+              Date = 39647.717255925930000000
               TabOrder = 3
             end
             object EditValorDiaForma: TComboBox
@@ -5958,7 +5958,7 @@ object CAD_Aluguel: TCAD_Aluguel
               Height = 154
               Cursor = crHandPoint
               CalColors.TitleBackColor = clGray
-              Date = 39647.679510254630000000
+              Date = 39647.717256041670000000
               TabOrder = 2
             end
             object EditValorValorForma: TComboBox

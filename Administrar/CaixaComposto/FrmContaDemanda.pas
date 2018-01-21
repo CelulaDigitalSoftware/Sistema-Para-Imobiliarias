@@ -487,37 +487,51 @@ begin
 end;
 
 procedure TContaDemanda.BitBtn21Click(Sender: TObject);
+Var sql, sqlUpdate: TZQuery;
 begin
 
-{
-   If MessageDlg('Deseja alterar a OBSERVAÇÃO?', mtConfirmation, [mbYes, mbNo], 0) = mrYes Then
+   If MessageDlg('Deseja alterar a OPERAÇÃO?', mtConfirmation, [mbYes, mbNo], 0) = mrYes Then
      Begin
 
-          SQLCaixaEntrada.Close;
-          SQLCaixaEntrada.SQL.Clear;
+          if RadioColocaBoleto.Checked Then
+          Begin
+               sql := getSQL('UPDATE '+CAIXA+' SET OPERACAO = OPERACAO||'' [BOLETO_EMITIDO DEMANDA]'', ID_FUNCIONARIO = ' + getUser('CODIGO_USUARIO') + ', DATA_ALT = current_timestamp  WHERE ' + WHERE);
+          end
+          else
+          if RadioRetiraBoleto.Checked Then
+          Begin
+             sql := getSelect('select id_caixa, operacao from '+CAIXA+' where '+WHERE);
 
-          if RadioCONCATObs.Checked Then
-             SQLCaixaEntrada.SQL.Add('UPDATE ' +CAIXA+ ' SET OBS = OBS||'' ''||'''+ EditObes.Text +''', ID_FUNCIONARIO = ' + getUser('CODIGO_USUARIO') + ', DATA_ALT = current_timestamp  WHERE ' + WHERE)
-          Else
-              SQLCaixaEntrada.SQL.Add('UPDATE ' +CAIXA+ ' SET OBS = '''+ EditObes.Text +''', ID_FUNCIONARIO = ' + getUser('CODIGO_USUARIO') + ', DATA_ALT = current_timestamp  WHERE ' + WHERE);
+             while not sql.Eof do
+             Begin
+                  sqlUpdate := getSQL('update '+CAIXA+' set OPERACAO = '''+formataTextoSQL(desmarcarBoletos(sql.FieldByName('OPERACAO').AsString))+''' where id_caixa = '+sql.FieldByName('ID_CAIXA').AsString);
+                  sql.Next;
+             end;
+             sql.Close;
+          end
+          else
+          if RadioColocaDeposito.Checked Then
+          Begin
+               sql := getSQL('UPDATE '+CAIXA+' SET OPERACAO = OPERACAO||'' [DEPOSITO]'', ID_FUNCIONARIO = ' + getUser('CODIGO_USUARIO') + ', DATA_ALT = current_timestamp  WHERE ' + WHERE);
+          end
+          else
+          if RadioRetiraDeposito.Checked Then
+          Begin
+             sql := getSelect('select id_caixa, operacao from '+CAIXA+' where '+WHERE);
 
-          Try
-          Try
-             SQLCaixaEntrada.ExecSQL;
-             SQLCaixaEntrada.ApplyUpdates;
-             setLogSQL('SQL UPDATE', 'SQL', 'RASTREAMENTO DE COMANDOS', SQLCaixaEntrada.SQL.Text);
-             setLogSQL(StringReplace(StringReplace(WHERE,'ID_CAIXA =','',[rfReplaceAll]),'OR',',',[rfReplaceAll]), 'ALTERAÇÃO', 'AÇÕES EM DEMANDA: '+ComboOperacao.Text, SQLCaixaEntrada.SQL.Text);
-          except
-                MSG.Panels[0].Text := 'O programa encontrou um problema! Verifique as informações.';
-                SQLCaixaEntrada.CancelUpdates;
-          End;
-          finally
-                 ShowMessage('Processo concluído!');
-          End;
+             while not sql.Eof do
+             Begin
+                  sqlUpdate := getSQL('update '+CAIXA+' set OPERACAO = '''+formataTextoSQL(desmarcarDepositos(sql.FieldByName('OPERACAO').AsString))+''' where id_caixa = '+sql.FieldByName('ID_CAIXA').AsString);
+                  sql.Next;
+             end;
+             sql.Close;
+          end;
+
+          ShowMessage('Processo concluído!');
      End
      else
          MSG.Panels[0].Text := 'Nenhum registro foi alterado!';
-                                                            }
+                                                            
 end;
 
 procedure TContaDemanda.BitBtn2Click(Sender: TObject);
